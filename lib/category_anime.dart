@@ -3,7 +3,7 @@ import 'package:ashborn/category.dart';
 import 'package:ashborn/anime_cowboy.dart';
 import 'package:ashborn/anime_deathnote.dart';
 import 'package:ashborn/anime_fullmetal.dart';
-import 'package:ashborn/quote_motivational.dart';
+
 import 'package:ashborn/anime_naruto.dart';
 import 'package:ashborn/anime_neongenesis.dart';
 import 'package:ashborn/anime_steinsgate.dart';
