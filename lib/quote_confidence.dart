@@ -384,49 +384,242 @@ class _ConfidentState extends State<Confident> {
   @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
-      navigationBar: CupertinoNavigationBar(
-        // LEADING ===============================================================================
-        leading: CupertinoButton(
-            padding: EdgeInsets.zero,
-            child: Icon(
-              CupertinoIcons.left_chevron,
-              size: 20,
-              color: Color(0xFF1A120B),
-            ),
-            onPressed: () {
-              Navigator.pushAndRemoveUntil(
-                  context,
-                  CupertinoPageRoute(builder: (context) => CategoryQuote()),
-                  (Route<dynamic> route) => false);
-            }),
-        // LEADING ===============================================================================
+        navigationBar: CupertinoNavigationBar(
+          // LEADING ===============================================================================
+          leading: CupertinoButton(
+              padding: EdgeInsets.zero,
+              child: Icon(
+                CupertinoIcons.left_chevron,
+                size: 20,
+                color: Color(0xFF1A120B),
+              ),
+              onPressed: () {
+                Navigator.pushAndRemoveUntil(
+                    context,
+                    CupertinoPageRoute(builder: (context) => CategoryQuote()),
+                    (Route<dynamic> route) => false);
+              }),
+          // LEADING ===============================================================================
 
-        // MIDDLE ===============================================================================
-        middle: Text(
-          'Confidence',
-          style: TextStyle(
-            color: Color(0xFFD404040),
-            letterSpacing: 1.2,
-            height: 1.5,
+          // MIDDLE ===============================================================================
+          middle: Text(
+            'Confidence',
+            style: TextStyle(
+              color: Color(0xFFD404040),
+              letterSpacing: 1.2,
+              height: 1.5,
+            ),
           ),
-        ),
-        // MIDDLE ===============================================================================
+          // MIDDLE ===============================================================================
 
-        // TRAILING ===============================================================================
-        trailing: CupertinoButton(
-            padding: EdgeInsets.zero,
-            child: Icon(
-              CupertinoIcons.settings,
-              size: 20,
-              color: Color(0xFF1A120B),
+          // TRAILING ===============================================================================
+          trailing: CupertinoButton(
+              padding: EdgeInsets.zero,
+              child: Icon(
+                CupertinoIcons.settings,
+                size: 20,
+                color: Color(0xFF1A120B),
+              ),
+              onPressed: () {
+                lastPage = Confident();
+                Navigator.pushReplacement(context,
+                    CupertinoPageRoute(builder: (context) => Settings()));
+              }),
+          // TRAILING ===============================================================================
+        ),
+        child: WillPopScope(
+          onWillPop: () async {
+            Navigator.pushAndRemoveUntil(
+              context,
+              CupertinoPageRoute(builder: (context) => CategoryQuote()),
+              (route) => false,
+            );
+            return false;
+          },
+          child: SingleChildScrollView(
+            child: SafeArea(
+              child: Padding(
+                padding: const EdgeInsets.all(25.0),
+                child: Column(
+                  children: [
+                    // CONTENT ===============================================================================
+
+                    SizedBox(
+                      height: 90,
+                    ),
+
+                    Container(
+                      width: double.infinity,
+                      padding: EdgeInsets.all(40),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Text(
+                            quotes[currentIndexqc]["quote"]!,
+                            textAlign: TextAlign.justify,
+                            style: TextStyle(
+                              fontSize: quotefontSize,
+                              fontFamily: '$quotefontFamily',
+                              fontWeight: FontWeight.w500,
+                              color: Color(0xFF262626),
+                              letterSpacing: 1.2,
+                              height: 1.5,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+
+                    Container(
+                      width: double.infinity,
+                      padding: EdgeInsets.fromLTRB(40, 10, 40, 0),
+                      child: Text(
+                        quotes[currentIndexqc]["author"]!,
+                        textAlign: TextAlign.end,
+                        style: TextStyle(
+                          color: Color(0xFF262626).withOpacity(0.6),
+                          fontStyle: FontStyle.italic,
+                          fontWeight: FontWeight.w500,
+                          fontSize: titlefontSize,
+                          letterSpacing: 1.2,
+                          fontFamily: titlefontFamily,
+                        ),
+                      ),
+                    ),
+
+                    gesmode && navmode != true
+                        ? SafeArea(
+                            child: Row(
+                              children: [
+                                Expanded(
+                                  child: SizedBox(
+                                    height: MediaQuery.of(context).size.height *
+                                        0.5,
+                                    child: GestureDetector(
+                                      onTap: () {
+                                        setState(() {
+                                          currentIndexqc =
+                                              (currentIndexqc - 1) %
+                                                  quotes.length;
+                                          _saveCurrentIndex();
+                                        });
+                                      },
+                                    ),
+                                  ),
+                                ),
+                                Expanded(
+                                  child: SizedBox(
+                                    height: MediaQuery.of(context).size.height *
+                                        0.5,
+                                    child: GestureDetector(
+                                      onTap: () {
+                                        setState(() {
+                                          currentIndexqc =
+                                              (currentIndexqc + 1) %
+                                                  quotes.length;
+                                          _saveCurrentIndex();
+                                        });
+                                      },
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          )
+                        : SizedBox.shrink(),
+
+                    navmode && gesmode != true
+                        ? Padding(
+                            padding: const EdgeInsets.fromLTRB(0, 40, 0, 0),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                Container(
+                                  padding: EdgeInsets.zero,
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.3,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(5),
+                                    color: Color(0xFFf2f2f2),
+                                  ),
+                                  child: CupertinoButton(
+                                    padding: EdgeInsets.fromLTRB(5, 5, 5, 5),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Icon(
+                                          CupertinoIcons.left_chevron,
+                                          color: CupertinoColors.black,
+                                          size: 15,
+                                        ),
+                                        SizedBox(width: 5),
+                                        Text(
+                                          "Prev",
+                                          style: TextStyle(
+                                              color: CupertinoColors.black,
+                                              fontSize: 15),
+                                        ),
+                                      ],
+                                    ),
+                                    onPressed: () {
+                                      setState(() {
+                                        currentIndexqc = (currentIndexqc - 1) %
+                                            quotes.length;
+                                        _saveCurrentIndex();
+                                      });
+                                    },
+                                  ),
+                                ),
+                                Container(
+                                  padding: EdgeInsets.zero,
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.3,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(5),
+                                    color: Color(0xFFf2f2f2),
+                                  ),
+                                  child: CupertinoButton(
+                                    padding: EdgeInsets.fromLTRB(5, 5, 5, 5),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Text(
+                                          "Next",
+                                          style: TextStyle(
+                                              color: CupertinoColors.black,
+                                              fontSize: 15),
+                                        ),
+                                        SizedBox(width: 5),
+                                        Icon(
+                                          CupertinoIcons.right_chevron,
+                                          color: CupertinoColors.black,
+                                          size: 15,
+                                        ),
+                                      ],
+                                    ),
+                                    onPressed: () {
+                                      setState(() {
+                                        currentIndexqc = (currentIndexqc + 1) %
+                                            quotes.length;
+                                        _saveCurrentIndex();
+                                      });
+                                    },
+                                  ),
+                                ),
+                              ],
+                            ),
+                          )
+                        : SizedBox.shrink(),
+
+                    // CONTENT ===============================================================================
+                  ],
+                ),
+              ),
             ),
-            onPressed: () {
-              lastPage = Confident();
-              Navigator.pushReplacement(context,
-                  CupertinoPageRoute(builder: (context) => Settings()));
-            }),
-        // TRAILING ===============================================================================
-      ),
-    );
+          ),
+        ));
   }
 }
