@@ -12,6 +12,348 @@ class Positive extends StatefulWidget {
 }
 
 class _PositiveState extends State<Positive> {
+  List<Map<String, String>> quotes = [
+    {
+      "quote": "Believe you can and you're halfway there.",
+      "author": "- Theodore Roosevelt"
+    },
+    {
+      "quote": "The only way to do great work is to love what you do.",
+      "author": "- Steve Jobs"
+    },
+    {
+      "quote":
+          "Keep your face always toward the sunshine—and shadows will fall behind you.",
+      "author": "- Walt Whitman"
+    },
+    {
+      "quote":
+          "Success is not the key to happiness. Happiness is the key to success.",
+      "author": "- Albert Schweitzer"
+    },
+    {
+      "quote": "The best way to predict the future is to create it.",
+      "author": "- Abraham Lincoln"
+    },
+    {
+      "quote":
+          "What lies behind us and what lies before us are tiny matters compared to what lies within us.",
+      "author": "- Ralph Waldo Emerson"
+    },
+    {
+      "quote":
+          "You are never too old to set another goal or to dream a new dream.",
+      "author": "- C.S. Lewis"
+    },
+    {
+      "quote": "It always seems impossible until it’s done.",
+      "author": "- Nelson Mandela"
+    },
+    {
+      "quote":
+          "The only limit to our realization of tomorrow is our doubts of today.",
+      "author": "- Franklin D. Roosevelt"
+    },
+    {
+      "quote": "Start where you are. Use what you have. Do what you can.",
+      "author": "- Arthur Ashe"
+    },
+    {
+      "quote":
+          "The pessimist sees difficulty in every opportunity. The optimist sees opportunity in every difficulty.",
+      "author": "- Winston Churchill"
+    },
+    {
+      "quote": "Don’t watch the clock; do what it does. Keep going.",
+      "author": "- Sam Levenson"
+    },
+    {
+      "quote": "You miss 100% of the shots you don’t take.",
+      "author": "- Wayne Gretzky"
+    },
+    {
+      "quote": "Everything you can imagine is real.",
+      "author": "- Pablo Picasso"
+    },
+    {
+      "quote": "Act as if what you do makes a difference. It does.",
+      "author": "- William James"
+    },
+    {
+      "quote":
+          "Success usually comes to those who are too busy to be looking for it.",
+      "author": "- Henry David Thoreau"
+    },
+    {
+      "quote": "Opportunities don't happen, you create them.",
+      "author": "- Chris Grosser"
+    },
+    {
+      "quote":
+          "Don’t be pushed around by the fears in your mind. Be led by the dreams in your heart.",
+      "author": "- Roy T. Bennett"
+    },
+    {
+      "quote":
+          "You don’t have to be great to start, but you have to start to be great.",
+      "author": "- Zig Ziglar"
+    },
+    {
+      "quote":
+          "Happiness is not something ready made. It comes from your own actions.",
+      "author": "- Dalai Lama"
+    },
+    {
+      "quote":
+          "Success is not how high you have climbed, but how you make a positive difference to the world.",
+      "author": "- Roy T. Bennett"
+    },
+    {
+      "quote":
+          "Believe in yourself and all that you are. Know that there is something inside you that is greater than any obstacle.",
+      "author": "- Christian D. Larson"
+    },
+    {
+      "quote": "When you have a dream, you've got to grab it and never let go.",
+      "author": "- Carol Burnett"
+    },
+    {
+      "quote":
+          "What you get by achieving your goals is not as important as what you become by achieving your goals.",
+      "author": "- Zig Ziglar"
+    },
+    {"quote": "If you can dream it, you can do it.", "author": "- Walt Disney"},
+    {
+      "quote": "Do one thing every day that scares you.",
+      "author": "- Eleanor Roosevelt"
+    },
+    {
+      "quote":
+          "I am not a product of my circumstances. I am a product of my decisions.",
+      "author": "- Stephen R. Covey"
+    },
+    {
+      "quote": "To live a creative life, we must lose our fear of being wrong.",
+      "author": "- Joseph Chilton Pearce"
+    },
+    {
+      "quote":
+          "It’s not whether you get knocked down, it’s whether you get up.",
+      "author": "- Vince Lombardi"
+    },
+    {
+      "quote": "Everything has beauty, but not everyone sees it.",
+      "author": "- Confucius"
+    },
+    {
+      "quote":
+          "The only way to achieve the impossible is to believe it is possible.",
+      "author": "- Charles Kingsleigh"
+    },
+    {
+      "quote": "Be the change that you wish to see in the world.",
+      "author": "- Mahatma Gandhi"
+    },
+    {
+      "quote": "Don’t wait. The time will never be just right.",
+      "author": "- Napoleon Hill"
+    },
+    {
+      "quote": "You don’t have to be perfect to be amazing.",
+      "author": "- Unknown"
+    },
+    {
+      "quote":
+          "Try not to become a man of success, but rather try to become a man of value.",
+      "author": "- Albert Einstein"
+    },
+    {
+      "quote": "Success is not in what you have, but who you are.",
+      "author": "- Bo Bennett"
+    },
+    {
+      "quote":
+          "The only place where success comes before work is in the dictionary.",
+      "author": "- Vidal Sassoon"
+    },
+    {
+      "quote": "Everything you need is already inside you.",
+      "author": "- Bill Bowerman"
+    },
+    {
+      "quote": "A person who never made a mistake never tried anything new.",
+      "author": "- Albert Einstein"
+    },
+    {
+      "quote": "In the middle of difficulty lies opportunity.",
+      "author": "- Albert Einstein"
+    },
+    {
+      "quote":
+          "It does not matter how slowly you go as long as you do not stop.",
+      "author": "- Confucius"
+    },
+    {
+      "quote":
+          "Success is not final, failure is not fatal: It is the courage to continue that counts.",
+      "author": "- Winston Churchill"
+    },
+    {
+      "quote": "Don’t be afraid to give up the good to go for the great.",
+      "author": "- John D. Rockefeller"
+    },
+    {
+      "quote": "You must be the change you wish to see in the world.",
+      "author": "- Mahatma Gandhi"
+    },
+    {
+      "quote":
+          "The future belongs to those who believe in the beauty of their dreams.",
+      "author": "- Eleanor Roosevelt"
+    },
+    {
+      "quote": "Life is what happens when you're busy making other plans.",
+      "author": "- John Lennon"
+    },
+    {
+      "quote": "You only live once, but if you do it right, once is enough.",
+      "author": "- Mae West"
+    },
+    {
+      "quote": "We may encounter many defeats, but we must not be defeated.",
+      "author": "- Maya Angelou"
+    },
+    {
+      "quote":
+          "Life isn’t about waiting for the storm to pass, it’s about learning how to dance in the rain.",
+      "author": "- Unknown"
+    },
+    {
+      "quote":
+          "I am not afraid of tomorrow, for I have seen yesterday and I love today.",
+      "author": "- William Allen White"
+    },
+    {
+      "quote": "Success is a journey, not a destination.",
+      "author": "- Arthur Ashe"
+    },
+    {
+      "quote":
+          "The best way to get started is to quit talking and begin doing.",
+      "author": "- Walt Disney"
+    },
+    {
+      "quote":
+          "Hardships often prepare ordinary people for an extraordinary destiny.",
+      "author": "- C.S. Lewis"
+    },
+    {
+      "quote": "The only way to do great work is to love what you do.",
+      "author": "- Steve Jobs"
+    },
+    {"quote": "Dream big and dare to fail.", "author": "- Norman Vaughan"},
+    {
+      "quote": "There are no shortcuts to any place worth going.",
+      "author": "- Beverly Sills"
+    },
+    {
+      "quote": "Success is not in what you have, but who you are.",
+      "author": "- Bo Bennett"
+    },
+    {
+      "quote": "Don’t count the days, make the days count.",
+      "author": "- Muhammad Ali"
+    },
+    {"quote": "Don’t wait for opportunity. Create it.", "author": "- Unknown"},
+    {
+      "quote":
+          "The difference between who you are and who you want to be is what you do.",
+      "author": "- Unknown"
+    },
+    {
+      "quote":
+          "Happiness is not something you postpone for the future; it is something you design for the present.",
+      "author": "- Jim Rohn"
+    },
+    {
+      "quote": "Act as if what you do makes a difference. It does.",
+      "author": "- William James"
+    },
+    {
+      "quote": "A journey of a thousand miles begins with a single step.",
+      "author": "- Lao Tzu"
+    },
+    {
+      "quote": "Life is 10% what happens to us and 90% how we react to it.",
+      "author": "- Charles R. Swindoll"
+    },
+    {
+      "quote":
+          "Success is the sum of small efforts, repeated day in and day out.",
+      "author": "- Robert Collier"
+    },
+    {
+      "quote":
+          "It does not matter how slowly you go as long as you do not stop.",
+      "author": "- Confucius"
+    },
+    {
+      "quote": "You miss 100% of the shots you don’t take.",
+      "author": "- Wayne Gretzky"
+    },
+    {
+      "quote": "The future depends on what you do today.",
+      "author": "- Mahatma Gandhi"
+    },
+    {
+      "quote": "Whatever you are, be a good one.",
+      "author": "- Abraham Lincoln"
+    },
+    {
+      "quote":
+          "If you want to live a happy life, tie it to a goal, not to people or things.",
+      "author": "- Albert Einstein"
+    },
+    {
+      "quote": "Don’t wait. The time will never be just right.",
+      "author": "- Napoleon Hill"
+    },
+    {
+      "quote":
+          "The road to success and the road to failure are almost exactly the same.",
+      "author": "- Colin R. Davis"
+    },
+    {
+      "quote": "Success is how high you bounce when you hit bottom.",
+      "author": "- George S. Patton"
+    },
+    {
+      "quote": "Do what you can with all you have, wherever you are.",
+      "author": "- Theodore Roosevelt"
+    },
+    {
+      "quote":
+          "Success usually comes to those who are too busy to be looking for it.",
+      "author": "- Henry David Thoreau"
+    },
+    {
+      "quote": "Don’t be afraid to give up the good to go for the great.",
+      "author": "- John D. Rockefeller"
+    },
+    {
+      "quote":
+          "Believe in yourself and all that you are. Know that there is something inside you that is greater than any obstacle.",
+      "author": "- Christian D. Larson"
+    },
+    {
+      "quote": "It always seems impossible until it’s done.",
+      "author": "- Nelson Mandela"
+    },
+    {
+      "quote": "Act as if what you do makes a difference. It does.",
+      "author": "- William James"
+    }
+  ];
   int currentIndexqpp = 0;
 
   @override
