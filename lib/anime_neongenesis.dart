@@ -12,6 +12,193 @@ class Neongenesis extends StatefulWidget {
 }
 
 class _NeongenesisState extends State<Neongenesis> {
+  List<Map<String, String>> quotes = [
+    {
+      "quote": "I mustn't run away, I mustn't run away, I mustn't run away.",
+      "author": "- Shinji Ikari"
+    },
+    {
+      "quote":
+          "The pain of not knowing what you’re supposed to do… that’s the hardest part of growing up.",
+      "author": "- Shinji Ikari"
+    },
+    {
+      "quote":
+          "I don't know what you're talking about. I just know that I want to be with you.",
+      "author": "- Asuka Langley Soryu"
+    },
+    {
+      "quote":
+          "The end of the world will not be an ending. It will be an awakening.",
+      "author": "- Gendo Ikari"
+    },
+    {
+      "quote":
+          "I am the one who chooses my own life. I will never be dictated to.",
+      "author": "- Rei Ayanami"
+    },
+    {
+      "quote":
+          "I don't really care whether the world ends or not. I just don't want to be alone.",
+      "author": "- Shinji Ikari"
+    },
+    {
+      "quote": "I don’t understand. Why did I have to be born into this world?",
+      "author": "- Shinji Ikari"
+    },
+    {
+      "quote":
+          "We are all running away from something, running away from our own feelings.",
+      "author": "- Misato Katsuragi"
+    },
+    {
+      "quote":
+          "The world will continue as it always has. I will continue to be who I am.",
+      "author": "- Rei Ayanami"
+    },
+    {
+      "quote": "Sometimes you have to burn a bridge to move forward.",
+      "author": "- Misato Katsuragi"
+    },
+    {
+      "quote":
+          "You should learn that to be loved, you must first love yourself.",
+      "author": "- Kaworu Nagisa"
+    },
+    {
+      "quote":
+          "Humans don’t care for each other, they only seek their own satisfaction. You can’t really say you care for others unless you care for yourself first.",
+      "author": "- Gendo Ikari"
+    },
+    {
+      "quote":
+          "People’s hearts are fragile. The slightest touch can make them crumble.",
+      "author": "- Rei Ayanami"
+    },
+    {
+      "quote":
+          "In this world, it’s either kill or be killed. That’s just how it works.",
+      "author": "- Asuka Langley Soryu"
+    },
+    {
+      "quote":
+          "You can't run away from yourself. You're just running away from the truth.",
+      "author": "- Shinji Ikari"
+    },
+    {
+      "quote":
+          "There is no escape. You can only survive. Even if you die, nothing really changes.",
+      "author": "- Gendo Ikari"
+    },
+    {
+      "quote":
+          "If you can’t understand others, then you’ll never be understood yourself.",
+      "author": "- Misato Katsuragi"
+    },
+    {
+      "quote": "When you’re in a battle, there’s no such thing as going back.",
+      "author": "- Shinji Ikari"
+    },
+    {
+      "quote": "It’s not about winning. It’s about surviving.",
+      "author": "- Asuka Langley Soryu"
+    },
+    {
+      "quote": "This is not a dream. This is not an illusion. This is reality.",
+      "author": "- Rei Ayanami"
+    },
+    {
+      "quote":
+          "To live is to suffer. But to survive… that's another thing entirely.",
+      "author": "- Shinji Ikari"
+    },
+    {
+      "quote":
+          "I have nothing to be proud of. I’ve done nothing but cause pain and suffering for the people around me.",
+      "author": "- Shinji Ikari"
+    },
+    {
+      "quote":
+          "Why do you fight? For love? For pride? For honor? Or because you have no other choice?",
+      "author": "- Kaworu Nagisa"
+    },
+    {
+      "quote":
+          "You cannot live by someone else’s rules. You have to create your own.",
+      "author": "- Misato Katsuragi"
+    },
+    {
+      "quote":
+          "People are always trying to escape their lives. But running away doesn’t help. You have to face your own soul.",
+      "author": "- Gendo Ikari"
+    },
+    {
+      "quote":
+          "In the end, we all have to learn how to love and accept ourselves.",
+      "author": "- Rei Ayanami"
+    },
+    {
+      "quote":
+          "The world isn’t kind. It never was. It’s not about being nice—it’s about surviving.",
+      "author": "- Asuka Langley Soryu"
+    },
+    {
+      "quote":
+          "If you're going to continue running away, just know that you’ll never be able to outrun your own mind.",
+      "author": "- Shinji Ikari"
+    },
+    {
+      "quote":
+          "The only way to save the world is to accept your own limitations.",
+      "author": "- Gendo Ikari"
+    },
+    {
+      "quote": "Don’t live for the past. Live for the future.",
+      "author": "- Misato Katsuragi"
+    },
+    {
+      "quote":
+          "I can’t make you happy. But I can teach you how to be happy on your own.",
+      "author": "- Kaworu Nagisa"
+    },
+    {
+      "quote": "The only way to escape is to accept the truth about yourself.",
+      "author": "- Rei Ayanami"
+    },
+    {
+      "quote":
+          "There’s no need to be afraid of the end of the world. It’s just a new beginning.",
+      "author": "- Kaworu Nagisa"
+    },
+    {
+      "quote":
+          "What are you living for? To escape? To escape from your fears? Or are you living for something more?",
+      "author": "- Shinji Ikari"
+    },
+    {
+      "quote": "If you don’t fight, you won’t survive. It’s as simple as that.",
+      "author": "- Asuka Langley Soryu"
+    },
+    {
+      "quote":
+          "I can’t forgive myself for not being able to protect the people I love.",
+      "author": "- Shinji Ikari"
+    },
+    {
+      "quote":
+          "Sometimes, it’s not about finding answers. It’s about living with the questions.",
+      "author": "- Gendo Ikari"
+    },
+    {
+      "quote": "I don’t need anyone to love me. I don’t need anyone to care.",
+      "author": "- Rei Ayanami"
+    },
+    {
+      "quote":
+          "You can’t understand everything. Sometimes, you just have to accept things as they are.",
+      "author": "- Misato Katsuragi"
+    }
+  ];
   int currentIndexneongenesis = 0;
 
   @override
