@@ -1,4 +1,4 @@
-package com.example.ashborn
+package com.quoteapp.ashborn
 
 import io.flutter.embedding.android.FlutterActivity
 
